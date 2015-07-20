@@ -7,23 +7,75 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width"/>
 <link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/style.css"/>
+<script type="text/javascript" src='js/jquery.min.js'></script>
 </head>
 <body>
 <div class="g-doc">
     <div class="g-hd">
-          
+         <ul>
+            <li><a>全部</a></li>
+            <li><a>人物</a></li>
+            <li><a>风光</a></li>
+            <li><a>私房</a></li>
+            <li><a>纪实</a></li>
+            <li><a>微距</a></li>
+            <li><a>野生动物</a></li>
+        </ul>
+
     </div>
     <div class="g-bd">
-        <div class="g-mn">
-              
-        </div>
+       <!--  <div class="g-mn">
+           <section class="container">
+                <div id="cube">
+                <figure class="front">1</figure>
+                <figure class="back">2</figure>
+                <figure class="right">3</figure>
+                <figure class="left">4</figure>
+                <figure class="top">5</figure>
+                <figure class="bottom">6</figure>
+                </div>
+          </section>                     
+        </div> -->
         <div class="g-sd">
-              
+           <dl><dd><image draggable=true src='image/Penguins.jpg'/></dd></dl>   
+           <dl><dd><image src='image/Desert.jpg' draggable=true/></dd></dl> 
+           <dl><dd><image src='image/Chrysanthemum.jpg' draggable=true/></dd></dl>   
+           <dl><dd><image src='image/Jellyfish.jpg' draggable=true/></dd></dl>   
+           <dl><dd><image src='image/Koala.jpg' draggable=true/></dd></dl>   
+           <dl><dd><image src='image/Tulips.jpg' draggable=true/></dd></dl>   
         </div>
     </div>
     <div class="g-ft">
-          
+         
     </div>
 </div>
+<script type="text/javascript">
+var origin , target;
+ $('.g-sd').find('img').on('dragstart',
+                             function(e){
+                            origin = e.target;
+                            console.log(origin);
+                             })
+                        .on("dragover",
+                     function(e) {
+              if (e.stopPropagation()) e.stopPropagation();
+              if (e.preventDefault) e.preventDefault(); // allows us to drop
+             // only dropEffect='copy' will be dropable
+          }).on("drop",
+                     function(e) {
+                     target = e.target;
+                     console.log(target);
+                     var a = $(origin).clone(true) ;
+                     var b = $(target).clone(true) ;
+                     $(target).replaceWith(a);
+                     $(origin).replaceWith(b);
+                     // origin.parentNode.appendChild(target);
+                     // target.parentNode.appendChild(origin);
+                     // target.parentNode.removeChild(target);
+                     // origin.parentNode.removeChild(origin);
+                    
+          });
+</script>
 </body>
 </html>

@@ -1,0 +1,45 @@
+.container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  perspective: 1000px;
+}
+ 
+#cube {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+   animation: spinCube 8s alternate infinite linear;
+}
+#cube figure {
+  width: 196px;
+  height: 196px;
+  display: block;
+  position: absolute;
+  border: 2px solid black;
+  font-size: 50px;
+  text-align: center;
+  line-height: 196px;
+}        
+@keyframes spinCube {
+          0% { 
+            transform:  rotateX(   0deg ) rotateY(   0deg ); 
+            }
+          100% {
+            transform: rotateX( 360deg ) rotateY( 360deg ); 
+          }
+        }   
+
+#cube .front  { transform: rotateY(   0deg ) translateZ( 200px ); }
+#cube .back   { transform: rotateX( 180deg ) translateZ( 200px ); }
+#cube .right  { transform: rotateY(  90deg ) translateZ( 200px ); }
+#cube .left   { transform: rotateY( -90deg ) translateZ( 200px );  }
+#cube .top    { transform: rotateX(  90deg ) translateZ( 200px ) ; }
+#cube .bottom { transform: rotateX( -90deg ) translateZ( 200px ); } 
+.g-sd dl{width:245px;height:165px;float:left;margin:6px 0 0 6px;overflow: hidden;}
+.g-sd dl dd{width:245px;height:165px;}
+.g-sd dl dd img {width:100%;height:165px;vertical-align: middle;}
+ul{font-size: 0}
+ul li {display: inline-block;height:20px;line-height: 20px; font-size:14px;padding-left:4px;padding-right:4px;font-weight: bold;}
+a{color:rgb(59, 99, 159)}
